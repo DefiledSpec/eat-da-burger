@@ -15,6 +15,8 @@ app.set('view engine', 'hbs')
 // Setup Morgan logger
 app.use(logger('dev'))
 
+app.use(express.static('./public'))
+
 // Setup Body Parser
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))

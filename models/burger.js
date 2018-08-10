@@ -7,13 +7,13 @@ const burger = {
 		const vals = { burger_name: name }
 		orm.insertOne(this.table, vals, data => {
 			console.log(data)
-			cb()
+			cb(data)
 		})
 	},
-	updateOne(id, cb) {
-		orm.updateOne(this.table, id, { devoured: true }, data => {
+	updateOne(id, vals, cb) {
+		orm.updateOne(this.table, vals, id, data => {
 			console.log(data)
-			cb()
+			cb(data)
 		})
 	},
 	selectAll(cb) {

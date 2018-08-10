@@ -1,24 +1,52 @@
-<h1>BURGERS</h1>
+<h1>Eat Da Burger</h1>
+<div class="container">
+	<div id="waiting">
+		<h3>Waiting to be Devoured</h3>
+		<hr>
+		<ul>
+		{{#each burgers}}
+			{{#unless devoured}}
+			<li>{{ burger_name }} &nbsp; &nbsp; <button id={{ id }} class="burgerBtn">Eat Da Burger</button></li>
+			{{/unless}}
+		{{/each}}
+		</ul>
+	</div>
 
-<form action="/" method="POST">
-	<input name="burgerName" type="text" placeholder="Add A New Burger" required/>
-	<button type="submit">Submit</button>
-</form>
+	<div id="devoured">
+		<h3>Devoured</h3>
+		<hr>
+		<ul>
+		{{#each burgers}}
+			{{#if devoured}}
+			<li>{{ burger_name }}</li>
+			{{/if}}
+		{{/each}}
+		</ul>
+	</div>
 
-<h3>Waiting to be Devoured</h3>
-<ul>
-{{#each burgers}}
-	{{#unless devoured}}
-	<li>{{ burger_name }}</li>
-	{{/unless}}
-{{/each}}
-</ul>
+	<div class="clearfix"></div>
 
-<h3>Devoured</h3>
-<ul>
-{{#each burgers}}
-	{{#if devoured}}
-	<li>{{ burger_name }}</li>
-	{{/if}}
-{{/each}}
-</ul>
+	<form action="/" method="POST">
+		<input name="burgerName" type="text" placeholder="Add A New Burger" required/>
+		<button type="submit" name="addBurger">Submit</button>
+	</form>
+</div>
+<script>
+	$(document).on('click', '.burgerBtn', (e) => {
+		const headers = new Headers()
+		headers.append('Content-Type', 'application/json')
+		const opts = {
+			method: 'PUT',
+			headers,
+			body: JSON.stringify({ devoured: true }),
+		}
+		let request = new Request(`/burgers/${e.target.id}`)
+		fetch(request, opts)
+			.then(() => {
+				console.log('reloading')
+				window.location = '/'
+			})
+			.catch(err => {throw err})
+			
+	})
+</script>

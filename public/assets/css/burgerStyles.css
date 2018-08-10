@@ -1,0 +1,42 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul {
+	list-style: none;
+}
+
+
+h1 {
+	margin: .75em auto 1.5em auto;
+	text-align: center;
+}
+
+#waiting {
+	padding: 1em 1.5em;
+	width: 48%;
+	float: left;
+	border-radius: 3px;
+	border: 2px solid black;
+}
+
+#devoured {
+	padding: 1em 1.5em;
+	width: 48%;
+	float: right;
+	border-radius: 3px;
+	border: 2px solid black;
+}
+
+.container {
+	width: 85%;
+	margin: 1em auto;
+}
+
+.clearfix::after {
+	display: block;
+	content: '';
+	clear: both;	
+}
