@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000
 
 // Setup handlebars
 app.engine('hbs', hbs({ defaultLayout: 'main', extname: 'hbs' }))
-app.use('view engine', 'hbs')
+app.set('view engine', 'hbs')
 
 // Setup Morgan logger
 app.use(logger('dev'))

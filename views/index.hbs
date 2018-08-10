@@ -1,0 +1,24 @@
+<h1>BURGERS</h1>
+
+<form action="/" method="POST">
+	<input name="burgerName" type="text" placeholder="Add A New Burger" required/>
+	<button type="submit">Submit</button>
+</form>
+
+<h3>Waiting to be Devoured</h3>
+<ul>
+{{#each burgers}}
+	{{#unless devoured}}
+	<li>{{ burger_name }}</li>
+	{{/unless}}
+{{/each}}
+</ul>
+
+<h3>Devoured</h3>
+<ul>
+{{#each burgers}}
+	{{#if devoured}}
+	<li>{{ burger_name }}</li>
+	{{/if}}
+{{/each}}
+</ul>
