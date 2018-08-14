@@ -45,10 +45,8 @@
 		let request = new Request(`/burgers/${e.target.id}`)
 		fetch(request, opts)
 			.then(() => {
-				console.log('reloading')
 				window.location = '/'
 			})
-			.catch(err => {throw err})
-			
+			.catch(err => {throw err})	
 	})
 </script>
