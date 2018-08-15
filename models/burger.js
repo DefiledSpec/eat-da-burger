@@ -11,9 +11,11 @@ const burger = {
 		})
 	},
 	updateOne(id, vals, cb) {
-		orm.updateOne(this.table, vals, id, data => {
-			console.log(data)
-			cb(data)
+		orm.updateOne(this.table, vals, id, changed => {
+			// console.log(changed)
+			let status = 304
+			if (changed < 1) status = 200 
+			cb(status)
 		})
 	},
 	selectAll(cb) {

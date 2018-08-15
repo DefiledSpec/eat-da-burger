@@ -8,7 +8,8 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-	burger.insertOne(req.body.burgerName, () => {
+	burger.insertOne(req.body.burgerName, (status) => {
+		res.status(status)
 		res.redirect('/')
 	})
 })
