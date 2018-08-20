@@ -4,6 +4,10 @@
 	box-sizing: border-box;
 }
 
+body {
+	background: url(/assets/img/dark-grey-terrazzo.png) repeat repeat;
+}
+
 ul {
 	list-style: none;
 }
@@ -11,6 +15,7 @@ ul {
 h1 {
 	margin: .75em auto 1.5em auto;
 	text-align: center;
+	color: ghostwhite;
 }
 
 #waiting {
@@ -19,6 +24,8 @@ h1 {
 	float: left;
 	border-radius: 3px;
 	border: 2px solid black;
+	background: darkslategray;
+	color: ghostwhite;
 }
 
 #devoured {
@@ -27,6 +34,8 @@ h1 {
 	float: right;
 	border-radius: 3px;
 	border: 2px solid black;
+	background: darkslategray;
+	color: ghostwhite;
 }
 
 .container {
